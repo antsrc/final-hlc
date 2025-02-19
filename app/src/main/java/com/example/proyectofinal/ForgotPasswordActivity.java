@@ -30,9 +30,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 String email = etEmailReset.getText().toString();
 
                 if (email.isEmpty()) {
-                    Toast.makeText(ForgotPasswordActivity.this, "Enter your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgotPasswordActivity.this, "Introduce tu email", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(ForgotPasswordActivity.this, "Reset link sent to " + email, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgotPasswordActivity.this, "Correo de recuperación enviado a " + email, Toast.LENGTH_SHORT).show();
                     // Aquí puedes agregar la lógica para enviar el enlace de recuperación
                 }
             }
