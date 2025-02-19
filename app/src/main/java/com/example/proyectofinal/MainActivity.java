@@ -29,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-                } else {
+                // Verificar si el usuario y la contraseña son correctos
+                if (email.equals("usuario") && password.equals("12345")) {
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
