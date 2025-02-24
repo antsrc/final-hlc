@@ -5,16 +5,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="#F4F4F4">
 
     <!-- Título de bienvenida -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Back"
-        android:textSize="24sp"
+        android:text="CoinWallet"
+        android:textSize="42sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="24dp"
+        android:textColor="@android:color/black"/>
 
     <!-- Campo de correo electrónico -->
     <EditText
@@ -23,8 +25,10 @@
         android:layout_height="48dp"
         android:hint="Enter email"
         android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:background="@android:drawable/editbox_background"/>
+        android:padding="12dp"
+        android:textColor="#191717"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Campo de contraseña -->
     <EditText
@@ -33,48 +37,40 @@
         android:layout_height="48dp"
         android:hint="Enter password"
         android:inputType="textPassword"
-        android:padding="10dp"
-        android:layout_marginTop="8dp"
+        android:padding="12dp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="24dp"
         android:background="@android:drawable/editbox_background"/>
 
-    <!-- LinearLayout para el botón de "Olvidé mi contraseña" y el botón de Login -->
-    <LinearLayout
+    <!-- Botón de Login -->
+    <Button
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_height="48dp"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:backgroundTint="#191717"
+        android:layout_marginBottom="16dp"/>
 
-        <!-- Botón de Login que ocupa todo el ancho -->
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Login"
-            android:backgroundTint="@android:color/holo_blue_light"
-            android:textColor="@android:color/white"/>
-
-    </LinearLayout>
-
-    <!-- Botón de "Olvidé mi contraseña" alineado a la izquierda -->
+    <!-- Botón de "Olvidé mi contraseña" -->
     <Button
         android:id="@+id/btnForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textColor="@android:color/holo_blue_dark"
+        android:text="Olvidé mi contraseña"
+        android:textColor="#191717"
         android:background="@android:color/transparent"
-        android:layout_marginTop="8dp"
-        android:gravity="start"/>
+        android:layout_marginBottom="24dp"/>
 
-    <!-- Botón de Registrarse debajo del botón de Login -->
+    <!-- Botón de Registrarse -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:backgroundTint="@android:color/holo_green_light"
+        android:layout_height="48dp"
+        android:text="Registrarme"
         android:textColor="@android:color/white"
-        android:layout_marginTop="16dp"/>
+        android:textSize="18sp"
+        android:backgroundTint="#838383"/>
 
 </LinearLayout>

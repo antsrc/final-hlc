@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".CoinActivity" />
+        <activity android:name=".CarteraActivity" />
         <activity android:name=".BitcoinActivity" />
         <activity android:name=".EthereumActivity" />
     </application>

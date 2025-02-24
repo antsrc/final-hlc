@@ -6,12 +6,30 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/logout"
+        android:contentDescription="Logout" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCartera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:text="Cartera"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnBitcoin"
@@ -48,14 +66,5 @@
         android:text="Cargando..."
         android:textSize="48sp"
         android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@android:color/holo_red_dark"
-        android:text="Logout"
-        android:textColor="@android:color/white" />
 
 </LinearLayout>

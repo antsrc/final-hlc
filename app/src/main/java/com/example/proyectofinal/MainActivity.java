@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
                 if (email.equals("usuario") && password.equals("12345")) {
-                    Intent intent = new Intent(MainActivity.this, BitcoinActivity.class);
+                    Intent intent = new Intent(MainActivity.this, CarteraActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
