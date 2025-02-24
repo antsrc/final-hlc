@@ -7,6 +7,7 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <!-- Título de bienvenida -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,6 +16,7 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Campo de correo electrónico -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
@@ -24,6 +26,7 @@
         android:padding="10dp"
         android:background="@android:drawable/editbox_background"/>
 
+    <!-- Campo de contraseña -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
@@ -34,12 +37,14 @@
         android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background"/>
 
+    <!-- LinearLayout para el botón de "Olvidé mi contraseña" y el botón de Login -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 
+        <!-- Botón de Login que ocupa todo el ancho -->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
@@ -49,14 +54,27 @@
             android:backgroundTint="@android:color/holo_blue_light"
             android:textColor="@android:color/white"/>
 
-        <Button
-            android:id="@+id/btnForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password?"
-            android:textColor="@android:color/holo_blue_dark"
-            android:background="@android:color/transparent"
-            android:layout_marginLeft="8dp"/>
     </LinearLayout>
+
+    <!-- Botón de "Olvidé mi contraseña" alineado a la izquierda -->
+    <Button
+        android:id="@+id/btnForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColor="@android:color/holo_blue_dark"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="8dp"
+        android:gravity="start"/>
+
+    <!-- Botón de Registrarse debajo del botón de Login -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
