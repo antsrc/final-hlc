@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +27,9 @@ public abstract class CoinActivity extends AppCompatActivity {
     private Runnable runnable;
     private double lastPrice = 0;
 
-
-    // Este método es responsable de devolver el layout específico para cada criptomoneda
     protected abstract int getLayoutId();
-    protected abstract String getCoinUrl(); // Método abstracto para obtener la URL de la API
+
+    protected abstract String getCoinUrl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,10 @@ public abstract class CoinActivity extends AppCompatActivity {
         Button btnCartera = findViewById(R.id.btnCartera);
         Button btnBitcoin = findViewById(R.id.btnBitcoin);
         Button btnEthereum = findViewById(R.id.btnEthereum);
-        Button btnLogout = findViewById(R.id.btnLogout);
+        ImageButton btnLogout = findViewById(R.id.btnLogout);
+
+        LinearLayout linearLayout = findViewById(R.id.layoutTransicion);
+        linearLayout.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fadein));
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -53,7 +58,6 @@ public abstract class CoinActivity extends AppCompatActivity {
         };
         handler.post(runnable);
 
-        // Acción para el botón Cartera
         btnCartera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +66,6 @@ public abstract class CoinActivity extends AppCompatActivity {
             }
         });
 
-        // Acción para el botón BTC/USDT
         btnBitcoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +74,6 @@ public abstract class CoinActivity extends AppCompatActivity {
             }
         });
 
-        // Acción para el botón ETH/USDT
         btnEthereum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +82,6 @@ public abstract class CoinActivity extends AppCompatActivity {
             }
         });
 
-        // Acción para el botón Logout
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +92,6 @@ public abstract class CoinActivity extends AppCompatActivity {
         });
     }
 
-    // Método que se encargará de cargar el precio de la criptomoneda
     private void updatePrice() {
         new Thread(new Runnable() {
             @Override
@@ -108,9 +108,9 @@ public abstract class CoinActivity extends AppCompatActivity {
 
                             if (lastPrice != 0) {
                                 if (currentPrice > lastPrice) {
-                                    tvPrice.setTextColor(getResources().getColor(android.R.color.holo_green_light)); // Verde si sube
+                                    tvPrice.setTextColor(getResources().getColor(android.R.color.holo_green_light));
                                 } else if (currentPrice < lastPrice) {
-                                    tvPrice.setTextColor(getResources().getColor(android.R.color.holo_red_light)); // Rojo si baja
+                                    tvPrice.setTextColor(getResources().getColor(android.R.color.holo_red_light));
                                 }
                             }
 
@@ -129,7 +129,6 @@ public abstract class CoinActivity extends AppCompatActivity {
         }).start();
     }
 
-    // Método para obtener el precio de la criptomoneda desde la URL de la API
     private String getCryptoPrice() {
         String price = null;
         try {

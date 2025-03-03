@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
-    private Button btnLogin, btnForgotPassword, btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnForgotPassword = findViewById(R.id.btnForgotPassword);
-        btnRegister = findViewById(R.id.btnRegister);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        Button btnForgotPassword = findViewById(R.id.btnForgotPassword);
+        Button btnRegister = findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (email.equals("usuario") && password.equals("12345")) {
+                if (email.equals("usuario@ejemplo.es") && password.equals("usuario")) {
                     Intent intent = new Intent(MainActivity.this, CarteraActivity.class);
                     startActivity(intent);
                 } else {

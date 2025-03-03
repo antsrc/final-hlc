@@ -1,59 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:background="#F4F4F4"
     android:gravity="center"
-    android:background="@android:color/white">
+    android:orientation="vertical"
+    android:padding="24dp">
 
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="center"
+        android:contentDescription="Retroceder"
         android:padding="8dp"
+        android:scaleType="center"
         app:srcCompat="@android:drawable/ic_menu_revert"
-        app:tint="@android:color/black"
-        android:contentDescription="Go Back"/>
+        app:tint="@android:color/black" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:layout_marginBottom="24dp"
+        android:text="Registro"
+        android:textColor="#191717"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etEmailRegister"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Enter email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="16dp"/>
+        android:hint="Introduzca su correo"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="#191717" />
 
     <EditText
         android:id="@+id/etPasswordRegister"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Enter password"
-        android:inputType="textPassword"
-        android:padding="10dp"
         android:layout_marginBottom="16dp"
-        android:background="@android:drawable/editbox_background"/>
+        android:background="@android:drawable/editbox_background"
+        android:hint="Introduzca su contraseña"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColor="#191717" />
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Repita su contraseña"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColor="#191717" />
 
     <Button
         android:id="@+id/btnRegisterAccount"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Register"
-        android:backgroundTint="@android:color/holo_green_light"
-        android:textColor="@android:color/white"/>
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#838383"
+        android:text="Registrarme"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 </LinearLayout>

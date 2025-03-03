@@ -2,13 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F4F4F4"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/coolvetica_rg"
+            android:text="CoinWallet"
+            android:textColor="#191717"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/btnLogout"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/logout"
+            android:contentDescription="Logout" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -17,96 +44,105 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:backgroundTint="@android:color/holo_green_light"
+            android:backgroundTint="#191717"
+            android:padding="12dp"
             android:text="Cartera"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnBitcoin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:backgroundTint="@android:color/holo_blue_bright"
+            android:backgroundTint="#838383"
+            android:padding="12dp"
             android:text="BTC/USDT"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnEthereum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:backgroundTint="@android:color/holo_green_light"
+            android:backgroundTint="#838383"
+            android:padding="12dp"
             android:text="ETH/USDT"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Separador -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginVertical="16dp"
+        android:layout_marginVertical="24dp"
         android:background="?android:attr/dividerVertical" />
 
-    <!-- Cantidad de BTC -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Cantidad de BTC:"
+        android:padding="6dp"
+        android:text="Cantidad de BTC"
+        android:textColor="#191717"
         android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etBtc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:background="@android:drawable/editbox_background"
         android:hint="Introduce tu cantidad"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColor="#191717" />
 
     <TextView
         android:id="@+id/tvBtcAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="0 BTC = $0"
+        android:padding="6dp"
+        android:text="0.00 BTC = $0.00"
+        android:textColor="#838383"
         android:textSize="14sp" />
 
-    <!-- Cantidad de ETH -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Cantidad de ETH:"
+        android:layout_marginTop="16dp"
+        android:padding="6dp"
+        android:text="Cantidad de ETH"
+        android:textColor="#191717"
         android:textSize="16sp" />
 
     <EditText
         android:id="@+id/etEth"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:background="@android:drawable/editbox_background"
         android:hint="Introduce tu cantidad"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColor="#191717" />
 
     <TextView
         android:id="@+id/tvEthAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="0 ETH = $0"
+        android:padding="6dp"
+        android:text="0.00 ETH = $0.00"
+        android:textColor="#838383"
         android:textSize="14sp" />
-
-    <!-- Total cartera -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Total cartera:"
-        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Total: $0"
-        android:textSize="18sp" />
+        android:layout_marginTop="20dp"
+        android:padding="6sp"
+        android:text="Total: $0.00"
+        android:textColor="#191717"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

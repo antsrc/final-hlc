@@ -1,76 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#F4F4F4"
     android:gravity="center"
-    android:padding="24dp"
-    android:background="#F4F4F4">
+    android:orientation="vertical"
+    android:padding="24dp">
 
-    <!-- Título de bienvenida -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CoinWallet"
-        android:textSize="42sp"
-        android:textStyle="bold"
         android:layout_marginBottom="24dp"
-        android:textColor="@android:color/black"/>
+        android:fontFamily="@font/coolvetica_rg"
+        android:text="CoinWallet"
+        android:textColor="#191717"
+        android:textSize="60sp"
+        android:textStyle="bold" />
 
-    <!-- Campo de correo electrónico -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Enter email"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Introduzca su correo"
         android:inputType="textEmailAddress"
         android:padding="12dp"
-        android:textColor="#191717"
-        android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#191717" />
 
-    <!-- Campo de contraseña -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Enter password"
+        android:layout_marginBottom="24dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Introduzca su contraseña"
         android:inputType="textPassword"
         android:padding="12dp"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="24dp"
-        android:background="@android:drawable/editbox_background"/>
+        android:textColor="@android:color/black" />
 
-    <!-- Botón de Login -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="#191717"
         android:text="Login"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:backgroundTint="#191717"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="18sp" />
 
-    <!-- Botón de "Olvidé mi contraseña" -->
     <Button
         android:id="@+id/btnForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Olvidé mi contraseña"
-        android:textColor="#191717"
+        android:layout_marginBottom="24dp"
         android:background="@android:color/transparent"
-        android:layout_marginBottom="24dp"/>
+        android:text="Olvidé mi contraseña"
+        android:textColor="#191717" />
 
-    <!-- Botón de Registrarse -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:backgroundTint="#838383"
         android:text="Registrarme"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:backgroundTint="#838383"/>
+        android:textSize="18sp" />
 
 </LinearLayout>

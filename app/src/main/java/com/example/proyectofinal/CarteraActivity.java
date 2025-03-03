@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class CarteraActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cartera); // Asegúrate de tener el layout adecuado
+        setContentView(R.layout.activity_cartera);
 
         etBtc = findViewById(R.id.etBtc);
         etEth = findViewById(R.id.etEth);
@@ -41,9 +42,10 @@ public class CarteraActivity extends AppCompatActivity {
         tvEthAmount = findViewById(R.id.tvEthAmount);
         tvTotal = findViewById(R.id.tvTotal);
 
-        Button btnCartera = findViewById(R.id.btnCartera);
+//      Button btnCartera = findViewById(R.id.btnCartera);
         Button btnBitcoin = findViewById(R.id.btnBitcoin);
         Button btnEthereum = findViewById(R.id.btnEthereum);
+        ImageButton btnLogout = findViewById(R.id.btnLogout);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -53,57 +55,58 @@ public class CarteraActivity extends AppCompatActivity {
             @Override
             public void run() {
                 updatePrices();
-                handler.postDelayed(this, 1000); // Actualiza cada segundo
+                handler.postDelayed(this, 1000);
             }
         };
 
         handler.post(runnable);
 
-        // Acción para el botón Cartera
-        btnCartera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ya estamos en la actividad Cartera, no es necesario hacer nada
-            }
-        });
+//        btnCartera.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            }
+//        });
 
-        // Acción para el botón BTC/USDT
         btnBitcoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cambia a la actividad Bitcoin
                 Intent intent = new Intent(CarteraActivity.this, BitcoinActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        // Acción para el botón ETH/USDT
         btnEthereum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cambia a la actividad Ethereum
                 Intent intent = new Intent(CarteraActivity.this, EthereumActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        // Escuchar cambios en las cantidades de BTC y ETH usando TextWatcher directamente
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CarteraActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         etBtc.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-                // No es necesario hacer nada antes de que cambie el texto
+                // No es necesario hacer nada
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                updateAmounts(); // Llama a la función que actualiza los valores de BTC y ETH
+                updateAmounts();
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                // Después de cambiar el texto, también actualizamos el total
                 updateAmounts();
             }
         });
@@ -111,23 +114,21 @@ public class CarteraActivity extends AppCompatActivity {
         etEth.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-                // No es necesario hacer nada antes de que cambie el texto
+                // No es necesario hacer nada
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                updateAmounts(); // Llama a la función que actualiza los valores de BTC y ETH
+                updateAmounts();
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                // Después de cambiar el texto, también actualizamos el total
                 updateAmounts();
             }
         });
     }
 
-    // Actualiza los precios de BTC y ETH desde la API
     private void updatePrices() {
         new Thread(new Runnable() {
             @Override
@@ -137,7 +138,6 @@ public class CarteraActivity extends AppCompatActivity {
 
                 if (btcPriceStr != null) {
                     btcPrice = Double.parseDouble(btcPriceStr);
-                    // Usamos runOnUiThread para asegurar que la actualización ocurra en el hilo principal
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -148,7 +148,6 @@ public class CarteraActivity extends AppCompatActivity {
 
                 if (ethPriceStr != null) {
                     ethPrice = Double.parseDouble(ethPriceStr);
-                    // Usamos runOnUiThread para asegurar que la actualización ocurra en el hilo principal
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -162,7 +161,6 @@ public class CarteraActivity extends AppCompatActivity {
         }).start();
     }
 
-    // Obtiene el precio de la criptomoneda a partir de la API de Binance
     private String getCryptoPrice(String symbol) {
         String price = null;
         try {
@@ -191,7 +189,6 @@ public class CarteraActivity extends AppCompatActivity {
         return price;
     }
 
-    // Actualiza las cantidades de BTC y ETH
     private void updateAmounts() {
         try {
             btcAmount = TextUtils.isEmpty(etBtc.getText()) ? 0 : Double.parseDouble(etBtc.getText().toString());
@@ -200,7 +197,6 @@ public class CarteraActivity extends AppCompatActivity {
             Toast.makeText(CarteraActivity.this, "Por favor ingresa una cantidad válida", Toast.LENGTH_SHORT).show();
         }
 
-        // Actualiza las cantidades y los precios calculados
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -211,7 +207,6 @@ public class CarteraActivity extends AppCompatActivity {
         });
     }
 
-    // Calcula y actualiza el total
     private void updateTotal() {
         double total = (btcAmount * btcPrice) + (ethAmount * ethPrice);
         runOnUiThread(new Runnable() {
@@ -222,7 +217,6 @@ public class CarteraActivity extends AppCompatActivity {
         });
     }
 
-    // Formatea el precio a un formato con dos decimales
     private String formatPrice(double price) {
         if (price == 0) {
             return "0.00";
